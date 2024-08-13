@@ -32,6 +32,7 @@ h1 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
+    padding: 1rem;
 }
 
 .card:hover {
@@ -50,6 +51,23 @@ h1 {
     color: #333;
     text-align: center;
 }
+
+.card-buttons {
+
+}
+
+.card-buttons a{
+    background-color: dodgerblue;
+    color: black;
+    padding: 8px;
+    border-radius: 8px;
+
+}
+
+.card-buttons a:visited{
+    color: black;
+}
+
 
 footer {
     margin-top: 40px;
@@ -173,4 +191,38 @@ footer a:hover {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#about {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 40px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#about p {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+#about a {
+    color: dodgerblue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#about a:hover {
+    text-decoration: underline;
 }
