@@ -157,18 +157,22 @@ Object.keys(categorizedCards).forEach(jurisdiction => {
     cardSectionGrid.classList.add('card-grid');
 
     categorizedCards[jurisdiction].forEach(card => {
-        const cardElement = document.createElement('div');
+        const cardElement = document.createElement('div'); // Cambiar a 'div' en lugar de 'a'
         cardElement.classList.add('card');
-
-        // Crear el contenido de la tarjeta
         cardElement.innerHTML = `
             <img src="${card.image}" alt="${card.title}">
             <div class="card-title">${card.title}</div>
             <div class="card-buttons">
-                ${card.pdf ? `<a href="${card.pdf}" class="btn" target="_blank">PDF</a>` : ''}
-                ${card.coment ? `<a href="${card.coment}" class="btn" target="_blank">Comentarios</a>` : ''}
+                ${card.pdf ? `<a href="${card.pdf}" target="_blank">PDF</a>` : ''}
+                ${card.coment ? `<a href="${card.coment}" target="_blank">Comentarios</a>` : ''}
             </div>
         `;
+    
+        // Agregar evento para redireccionar al hacer clic en la imagen
+        cardElement.querySelector('img').addEventListener('click', () => {
+            window.open(card.link, '_blank');
+        });
+    
         cardSectionGrid.appendChild(cardElement);
     });
 

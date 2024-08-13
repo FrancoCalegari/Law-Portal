@@ -1,6 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+
     margin: 0;
     padding: 20px;
 }
@@ -43,6 +49,10 @@ h1 {
     width: 75%;
     height: 250px;
     object-fit: cover;
+}
+
+.card img:hover {
+    cursor: pointer;
 }
 
 .card-title {
@@ -225,4 +235,23 @@ footer a:hover {
 
 #about a:hover {
     text-decoration: underline;
+}
+
+
+body iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #f8f8f8;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    backdrop-filter: blur(10px);
+
 }
