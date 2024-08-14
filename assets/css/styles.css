@@ -6,9 +6,11 @@
 
 body {
     font-family: Arial, sans-serif;
-
+    color: #333;
     margin: 0;
     padding: 20px;
+    background: rgb(197, 195, 238);
+    
 }
 
 .container {
@@ -20,7 +22,12 @@ body {
 h1 {
     margin-bottom: 40px;
     font-size: 2.5em;
+    font-family: "Rubik", sans-serif;
     color: #333;
+    background-color: #ffffff64;
+    backdrop-filter: blur(2px);
+    padding: 5px;
+    border-radius: 15px;
 }
 
 .card-grid {
@@ -33,7 +40,8 @@ h1 {
 
 .card {
     text-decoration: none;
-    background-color: #fff;
+    background-color: #ffffff64;
+    backdrop-filter: blur(2px);
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -49,6 +57,7 @@ h1 {
     width: 75%;
     height: 250px;
     object-fit: cover;
+    border-radius: 15px;
 }
 
 .card img:hover {
@@ -62,9 +71,7 @@ h1 {
     text-align: center;
 }
 
-.card-buttons {
 
-}
 
 .card-buttons a{
     background-color: dodgerblue;
@@ -83,12 +90,13 @@ footer {
     margin-top: 40px;
     text-align: center;
     font-size: 0.9em;
-    color: #666;
+    color: #333;
 }
 
 footer a {
-    color: #333;
+    color: dodgerblue;
     text-decoration: none;
+    font-weight: bold;
 }
 
 footer a:hover {
@@ -204,7 +212,7 @@ footer a:hover {
 }
 
 #about {
-    background-color: #fff;
+    background-color: #ffffff70;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -215,6 +223,7 @@ footer a:hover {
 
 #about h2 {
     font-size: 2em;
+    font-family: "Rubik", sans-serif;
     color: #333;
     margin-bottom: 20px;
     text-align: center;
@@ -222,7 +231,7 @@ footer a:hover {
 
 #about p {
     font-size: 1em;
-    color: #555;
+    color: #333;
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -237,21 +246,3 @@ footer a:hover {
     text-decoration: underline;
 }
 
-
-body iframe{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #f8f8f8;
-    z-index: -1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-main {
-    backdrop-filter: blur(10px);
-
-}
