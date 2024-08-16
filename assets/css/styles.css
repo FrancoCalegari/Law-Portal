@@ -31,12 +31,24 @@ h1 {
 }
 
 .card-grid {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    gap: 20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-category{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    width: 80%;
-    margin: auto;
 }
+
+
 
 .card {
     text-decoration: none;
@@ -47,6 +59,7 @@ h1 {
     overflow: hidden;
     transition: transform 0.3s ease;
     padding: 1rem;
+    width: 300px;
 }
 
 .card:hover {
