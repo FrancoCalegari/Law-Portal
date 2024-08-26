@@ -29,27 +29,26 @@ h1 {
     padding: 5px;
     border-radius: 15px;
 }
-
+/* Ajuste para el contenedor principal */
 .card-grid {
-    display: flex;
-    width: 100%;
-    margin: auto;
-    gap: 20px;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-}
-
-.card-category{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    justify-items: center;
 }
 
+/* Estilo para las categorías de cards */
+.card-category {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
 
-
+/* Estilo para cada card */
 .card {
     text-decoration: none;
     background-color: #ffffff64;
@@ -59,15 +58,18 @@ h1 {
     overflow: hidden;
     transition: transform 0.3s ease;
     padding: 1rem;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
 }
 
+/* Efecto hover para la card */
 .card:hover {
     transform: translateY(-5px);
 }
 
+/* Estilo para la imagen dentro de la card */
 .card img {
-    width: 75%;
+    width: 100%;
     height: 250px;
     object-fit: cover;
     border-radius: 15px;
@@ -77,6 +79,7 @@ h1 {
     cursor: pointer;
 }
 
+/* Estilo para el título dentro de la card */
 .card-title {
     padding: 15px;
     font-size: 1.2em;
@@ -84,19 +87,21 @@ h1 {
     text-align: center;
 }
 
-
-
-.card-buttons a{
+/* Estilo para los botones dentro de la card */
+.card-buttons a {
     background-color: dodgerblue;
     color: black;
     padding: 8px;
     border-radius: 8px;
-
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
 }
 
-.card-buttons a:visited{
+.card-buttons a:visited {
     color: black;
 }
+
 
 
 footer {
