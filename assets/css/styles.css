@@ -271,7 +271,7 @@ footer a:hover {
 }
 
 .category-button {
-    background-color: #4CAF50; /* Color de fondo */
+    background-color: dodgerblue; /* Color de fondo */
     border: none;
     color: white;
     padding: 10px 20px;
@@ -286,7 +286,7 @@ footer a:hover {
 }
 
 .category-button:hover {
-    background-color: #45a049; /* Color al pasar el mouse */
+    background-color: rgb(33, 82, 131); /* Color al pasar el mouse */
 }
 
 .category-button.active {
