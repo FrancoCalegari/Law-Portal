@@ -50,7 +50,7 @@
     {
         "title": "CODIGO ALIMENTARIO ARGENTINO",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-18284-21841/texto",
-        "image": "https://www.fedecom.org.ar/wp-content/uploads/2019/02/codigo-alimentario-argentino.jpg",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAnoYkPkpmRfwp0isOKmK2-fBdurhwVjt79g&s",
         "jurisdiction": "Nacional",
         "pdf": "https://www.example.com/alimentario.pdf",
         "coment": ""
@@ -126,5 +126,13 @@
         "jurisdiction": "Nacional",
         "pdf": "https://www.example.com/civil-comercial.pdf",
         "coment": "https://www.example.com/civil-comercial-comentarios"
+    },
+    {
+        "title": "Consitucion Nacional",
+        "link": "https://www.argentina.gob.ar/normativa/nacional/ley-24430-804/texto",
+        "image": "https://acdn.mitiendanube.com/stores/984/757/products/constitucion-nacional-a134a0512fc5bdc93b15606153747016-640-0.jpg",
+        "jurisdiction": "Nacional",
+        "pdf": "",
+        "coment": ""
     }
 ]

@@ -1,72 +1,127 @@
-fetch('./assets/json/cards.json')
-    .then(response => response.json())
-    .then(cards => {
-        const cardGrid = document.getElementById('card-grid');
-        const searchBar = document.getElementById('searchBar');
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('./assets/json/cards.json')
+        .then(response => response.json())
+        .then(cards => {
+            const cardGrid = document.getElementById('card-grid');
+            const searchBar = document.getElementById('searchBar');
+            const container = document.querySelector('.container');
+            const categoryButtonsContainer = document.createElement('div');
+            categoryButtonsContainer.id = 'category-buttons';
+            container.insertBefore(categoryButtonsContainer, cardGrid);
 
-        const categorizedCards = cards.reduce((acc, card) => {
-            if (!acc[card.jurisdiction]) acc[card.jurisdiction] = [];
-            acc[card.jurisdiction].push(card);
-            return acc;
-        }, {});
+            let activeCategory = null;
 
-        Object.keys(categorizedCards).forEach(jurisdiction => {
-            const section = document.createElement('section');
-            section.classList.add('card-category');
-            section.innerHTML = `<h2>${jurisdiction.charAt(0).toUpperCase() + jurisdiction.slice(1)}</h2>`;
+            const categorizedCards = cards.reduce((acc, card) => {
+                if (!acc[card.jurisdiction]) acc[card.jurisdiction] = [];
+                acc[card.jurisdiction].push(card);
+                return acc;
+            }, {});
 
-            const cardSectionGrid = document.createElement('div');
-            cardSectionGrid.classList.add('card-grid');
+            function renderCategoryButtons() {
+                categoryButtonsContainer.innerHTML = '';
 
-            categorizedCards[jurisdiction].forEach(card => {
-                const cardElement = document.createElement('div');
-                cardElement.classList.add('card');
-                cardElement.innerHTML = `
-                    <img src="${card.image}" alt="${card.title}">
-                    <div class="card-title">${card.title}</div>
-                    <div class="card-buttons">
-                        ${card.pdf ? `<a href="${card.pdf}" target="_blank">PDF</a>` : ''}
-                        ${card.coment ? `<a href="${card.coment}" target="_blank">Comentado</a>` : ''}
-                    </div>
-                `;
+                Object.keys(categorizedCards).forEach(jurisdiction => {
+                    const button = document.createElement('button');
+                    button.textContent = jurisdiction.charAt(0).toUpperCase() + jurisdiction.slice(1);
+                    button.classList.add('category-button');
 
-                cardElement.querySelector('img').addEventListener('click', () => {
-                    window.open(card.link, '_blank');
+                    button.addEventListener('click', () => {
+                        activeCategory = jurisdiction;
+                        renderCards(jurisdiction);
+                    });
+
+                    categoryButtonsContainer.appendChild(button);
                 });
 
-                cardSectionGrid.appendChild(cardElement);
-            });
+                // Botón para mostrar todas las categorías
+                const showAllButton = document.createElement('button');
+                showAllButton.textContent = 'Mostrar Todos';
+                showAllButton.classList.add('category-button');
 
-            section.appendChild(cardSectionGrid);
-            cardGrid.appendChild(section);
-        });
+                showAllButton.addEventListener('click', () => {
+                    activeCategory = null;
+                    renderCards(null); // Mostrar todas las tarjetas
+                });
 
-        searchBar.addEventListener('input', function() {
-            const filter = searchBar.value.toLowerCase();
-            const cards = document.querySelectorAll('.card');
+                categoryButtonsContainer.appendChild(showAllButton);
+            }
 
-            cards.forEach(card => {
-                const title = card.querySelector('.card-title').textContent.toLowerCase();
-                if (title.includes(filter)) {
-                    card.classList.remove('hidden');
+            function renderCards(category) {
+                cardGrid.innerHTML = '';
+
+                const cardsToRender = category ? categorizedCards[category] : cards;
+
+                cardsToRender.forEach(card => {
+                    const cardElement = document.createElement('div');
+                    cardElement.classList.add('card');
+                    cardElement.innerHTML = `
+                        <img src="${card.image}" alt="${card.title}">
+                        <div class="card-title">${card.title}</div>
+                        <div class="card-buttons">
+                            ${card.pdf ? `<a href="${card.pdf}" target="_blank">PDF</a>` : ''}
+                            ${card.coment ? `<a href="${card.coment}" target="_blank">Comentado</a>` : ''}
+                        </div>
+                    `;
+
+                    cardElement.querySelector('img').addEventListener('click', () => {
+                        window.open(card.link, '_blank');
+                    });
+
+                    cardGrid.appendChild(cardElement);
+                });
+            }
+
+            renderCategoryButtons();
+            renderCards(null); // Mostrar todas las tarjetas al cargar la página
+
+            searchBar.addEventListener('input', function () {
+                const filter = searchBar.value.toLowerCase();
+
+                if (filter === '') {
+                    // Si el campo de búsqueda está vacío, mostrar la categoría seleccionada
+                    renderCards(activeCategory);
                 } else {
-                    card.classList.add('hidden');
+                    // Filtrar las tarjetas por título
+                    const filteredCards = cards.filter(card =>
+                        card.title.toLowerCase().includes(filter)
+                    );
+
+                    cardGrid.innerHTML = ''; // Limpiar la cuadrícula antes de mostrar los resultados
+
+                    if (filteredCards.length > 0) {
+                        filteredCards.forEach(card => {
+                            const cardElement = document.createElement('div');
+                            cardElement.classList.add('card');
+                            cardElement.innerHTML = `
+                                <img src="${card.image}" alt="${card.title}">
+                                <div class="card-title">${card.title}</div>
+                                <div class="card-buttons">
+                                    ${card.pdf ? `<a href="${card.pdf}" target="_blank">PDF</a>` : ''}
+                                    ${card.coment ? `<a href="${card.coment}" target="_blank">Comentado</a>` : ''}
+                                </div>
+                            `;
+
+                            cardElement.querySelector('img').addEventListener('click', () => {
+                                window.open(card.link, '_blank');
+                            });
+
+                            cardGrid.appendChild(cardElement);
+                        });
+                    } else {
+                        // Si no hay resultados, mostrar un mensaje de "No se encontraron resultados"
+                        const noResultsElement = document.createElement('p');
+                        noResultsElement.textContent = 'No se encontraron resultados';
+                        noResultsElement.classList.add('no-results');
+                        cardGrid.appendChild(noResultsElement);
+                    }
                 }
             });
+        })
+        .catch(error => console.error('Error loading cards:', error));
 
-            document.querySelectorAll('.card-grid').forEach(grid => {
-                const visibleCards = Array.from(grid.querySelectorAll('.card:not(.hidden)'));
-                visibleCards.forEach(card => grid.appendChild(card));
-            });
-
-            if (filter === '') {
-                cards.forEach(card => card.classList.remove('hidden'));
-            }
-        });
-    })
-    .catch(error => console.error('Error loading cards:', error));
-
-window.addEventListener('load', function() {
-    const preloader = document.getElementById('preloader');
-    preloader.classList.add('hidden');
+    // Preloader
+    window.addEventListener('load', function () {
+        const preloader = document.getElementById('preloader');
+        preloader.classList.add('hidden');
+    });
 });
