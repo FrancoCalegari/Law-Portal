@@ -4,15 +4,15 @@
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-23984-383/actualizacion",
         "image": "./assets/img/portadas/CodigoProcesalPenal.webp",
         "jurisdiction": "Nacional",
-        "pdf": "https://www.example.com/procesal-penal.pdf",
-        "coment": "https://www.example.com/procesal-penal-comentarios"
+        "pdf": "",
+        "coment": ""
     },
     {
         "title": "CODIGO AERONAUTICO",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-17285-24963/actualizacion",
         "image": "./assets/img/portadas/CodigoAeronautico.webp",
         "jurisdiction": "Nacional",
-        "pdf": "https://www.example.com/aeronautico.pdf",
+        "pdf": "",
         "coment": ""
     },
     {
@@ -21,15 +21,15 @@
         "image": "./assets/img/portadas/Codigo_Mineria_tapa.webp",
         "jurisdiction": "Nacional",
         "pdf": "",
-        "coment": "https://www.example.com/mineria-comentarios"
+        "coment": ""
     },
     {
         "title": "C\u00f3digo Procesal Laboral",
         "link": "https://www.argentina.gob.ar/normativa/provincial/ley-2144-123456789-0abc-defg-441-2000mvorpyel/actualizacion",
         "image": "./assets/img/portadas/CodgioProcesalLaboralDeLaProvinciaDeSantaFE.webp",
         "jurisdiction": "Provincial",
-        "pdf": "https://www.example.com/procesal-laboral.pdf",
-        "coment": "https://www.example.com/procesal-laboral-comentarios"
+        "pdf": "",
+        "coment": ""
     },
     {
         "title": "CODIGO ELECTORAL NACIONAL",
@@ -44,15 +44,15 @@
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-22415-16536/actualizacion",
         "image": "./assets/img/portadas/CodigoAduanero.webp",
         "jurisdiction": "Nacional",
-        "pdf": "https://www.example.com/aduanero.pdf",
-        "coment": "https://www.example.com/aduanero-comentarios"
+        "pdf": "",
+        "coment": ""
     },
     {
         "title": "CODIGO ALIMENTARIO ARGENTINO",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-18284-21841/texto",
         "image": "./assets/img/portadas/CodigoAlimentario.webp",
         "jurisdiction": "Nacional",
-        "pdf": "https://www.example.com/alimentario.pdf",
+        "pdf": "",
         "coment": ""
     },
     {
@@ -60,8 +60,8 @@
         "link": "https://www.argentina.gob.ar/normativa/provincial/ley-2269-123456789-0abc-defg-962-2000mvorpyel/actualizacion",
         "image": "./assets/img/portadas/CodigoProcesalDeLaProvinciaDeMendoza.webp",
         "jurisdiction": "Provincial",
-        "pdf": "https://www.example.com/procesal-civil-mendoza.pdf",
-        "coment": "https://www.example.com/procesal-civil-mendoza-comentarios"
+        "pdf": "",
+        "coment": ""
     },
     {
         "title": "Senado Mendoza",
@@ -69,14 +69,14 @@
         "image": "./assets/img/portadas/SenadoMendoza.webp",
         "jurisdiction": "Provincial",
         "pdf": "",
-        "coment": "https://www.example.com/senado-mendoza-comentarios"
+        "coment": ""
     },
     {
         "title": "C\u00d3DIGO PROCESAL PENAL DE MENDOZA",
         "link": "https://www.argentina.gob.ar/normativa/provincial/ley-6730-123456789-0abc-defg-037-6001mvorpyel",
         "image": "./assets/img/portadas/CodigoProcesalPenalProvinciaDeMendoza.webp",
         "jurisdiction": "Provincial",
-        "pdf": "https://www.example.com/procesal-penal-mendoza.pdf",
+        "pdf": "",
         "coment": ""
     },
     {
@@ -84,24 +84,24 @@
         "link": "https://www.argentina.gob.ar/sites/default/files/derechoshumanos_publicaciones_colecciondebolsillo_10_convencion_americana_ddhh.pdf",
         "image": "./assets/img/portadas/ConvenciosAmericanaSobreDerechosHumanos.webp",
         "jurisdiction": "Internacional",
-        "pdf": "https://www.example.com/ddhh.pdf",
-        "coment": "https://www.example.com/ddhh-comentarios"
+        "pdf": "",
+        "coment": ""
     },
     {
         "title": "CODIGO PROCESAL CIVIL Y COMERCIAL DE LA NACION",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-17454-16547/actualizacion",
         "image": "./assets/img/portadas/CodigoProcesalCivilYComercialDeLaNacion.webp",
         "jurisdiction": "Nacional",
-        "pdf": "https://www.example.com/civil-comercial.pdf",
-        "coment": "https://www.example.com/civil-comercial-comentarios"
+        "pdf": "",
+        "coment": ""
     },
     {
         "title": "C\u00f3digo Procesal Civil, Comercial y Tributario de la Provincia de Mendoza",
         "link": "https://www.argentina.gob.ar/normativa/provincial/ley-9001-123456789-0abc-defg-100-9000mvorpyel/actualizacion",
         "image": "./assets/img/portadas/CodigoProcesalCivilComercialYTributarioProvinciaDeMendoza.webp",
         "jurisdiction": "Provincial",
-        "pdf": "https://www.example.com/procesal-civil-comercial-tributario-mendoza.pdf",
-        "coment": "https://www.example.com/procesal-civil-comercial-tributario-mendoza-comentarios"
+        "pdf": "",
+        "coment": ""
     },
     {
         "title": "Constituci\u00f3n de la provincia de Mendoza",
@@ -109,23 +109,23 @@
         "image": "./assets/img/portadas/ConstitucionDeLaProvinciaDeMendoza.webp",
         "jurisdiction": "Provincial",
         "pdf": "",
-        "coment": "https://www.example.com/constitucion-mendoza-comentarios"
+        "coment": ""
     },
     {
         "title": "CODIGO PENAL DE LA NACION ARGENTINA",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-11179-16546/actualizacion",
         "image": "./assets/img/portadas/CodigoPenal.webp",
         "jurisdiction": "Nacional",
-        "pdf": "https://www.example.com/penal.pdf",
-        "coment": "https://www.example.com/penal-comentarios"
+        "pdf": "",
+        "coment": ""
     },
     {
         "title": "CODIGO CIVIL Y COMERCIAL DE LA NACION",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-26944-19442/actualizacion",
         "image": "./assets/img/portadas/CodigoProcesalCivilYComercialDeLaNacion.webp",
         "jurisdiction": "Nacional",
-        "pdf": "https://www.example.com/civil-comercial.pdf",
-        "coment": "https://www.example.com/civil-comercial-comentarios"
+        "pdf": "",
+        "coment": ""
     },
     {
         "title": "CONSTITUCI\u00f3N NACIONAL",
