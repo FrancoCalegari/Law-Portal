@@ -8,7 +8,7 @@
         "coment": ""
     },
     {
-        "title": "CÓDIGO AERONAUTICO",
+        "title": "C\u00d3DIGO AERON\u00c1UTICO",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-17285-24963/actualizacion",
         "image": "./assets/img/portadas/CodigoAeronautico.webp",
         "jurisdiction": "Nacional",
@@ -16,7 +16,7 @@
         "coment": ""
     },
     {
-        "title": "CÓDIGO DE MINERIA",
+        "title": "C\u00d3DIGO DE MINER\u00cdA",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-1919-43797/actualizacion",
         "image": "./assets/img/portadas/Codigo_Mineria_tapa.webp",
         "jurisdiction": "Nacional",
@@ -24,15 +24,15 @@
         "coment": ""
     },
     {
-        "title": "C\u00d3DIGO PROCESAL LABORAL",
+        "title": "C\u00d3DIGO PROCESAL LABORAL DE MENDOZA",
         "link": "https://www.argentina.gob.ar/normativa/provincial/ley-2144-123456789-0abc-defg-441-2000mvorpyel/actualizacion",
-        "image": "./assets/img/portadas/CodgioProcesalLaboralDeLaProvinciaDeSantaFE.webp",
+        "image": "./assets/img/portadas/CodigoProcesalLaboralDeMendoza.webp",
         "jurisdiction": "Provincial",
         "pdf": "",
         "coment": ""
     },
     {
-        "title": "CÓDIGO ELECTORAL NACIONAL",
+        "title": "C\u00d3DIGO ELECTORAL NACIONAL",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-19945-19442/actualizacion",
         "image": "./assets/img/portadas/CodigoElectoralNacionalConcordandoYComentado.webp",
         "jurisdiction": "Nacional",
@@ -40,7 +40,7 @@
         "coment": ""
     },
     {
-        "title": "CÓDIGO ADUANERO",
+        "title": "C\u00d3DIGO ADUANERO",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-22415-16536/actualizacion",
         "image": "./assets/img/portadas/CodigoAduanero.webp",
         "jurisdiction": "Nacional",
@@ -48,7 +48,7 @@
         "coment": ""
     },
     {
-        "title": "CÓDIGO ALIMENTARIO ARGENTINO",
+        "title": "C\u00d3DIGO ALIMENTARIO ARGENTINO",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-18284-21841/texto",
         "image": "./assets/img/portadas/CodigoAlimentario.webp",
         "jurisdiction": "Nacional",
@@ -88,7 +88,7 @@
         "coment": ""
     },
     {
-        "title": "CÓDIGO PROCESAL CIVIL Y COMERCIAL DE LA NACION",
+        "title": "C\u00d3DIGO PROCESAL CIVIL Y COMERCIAL DE LA NACION",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-17454-16547/actualizacion",
         "image": "./assets/img/portadas/CodigoProcesalCivilYComercialDeLaNacion.webp",
         "jurisdiction": "Nacional",
@@ -112,7 +112,7 @@
         "coment": ""
     },
     {
-        "title": "CÓDIGO PENAL DE LA NACION ARGENTINA",
+        "title": "C\u00d3DIGO PENAL DE LA NACION ARGENTINA",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-11179-16546/actualizacion",
         "image": "./assets/img/portadas/CodigoProcesalPenalDeLaNacion.webp",
         "jurisdiction": "Nacional",
@@ -120,7 +120,7 @@
         "coment": ""
     },
     {
-        "title": "CÓDIGO CIVIL Y COMERCIAL DE LA NACION",
+        "title": "C\u00d3DIGO CIVIL Y COMERCIAL DE LA NACION",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-26944-19442/actualizacion",
         "image": "./assets/img/portadas/CodigoProcesalCivilYComercialDeLaNacion.webp",
         "jurisdiction": "Nacional",
