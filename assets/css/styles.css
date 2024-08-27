@@ -9,8 +9,7 @@ body {
     color: #333;
     margin: 0;
     padding: 20px;
-    background: rgb(197, 195, 238);
-    
+    background-color: #e4f0fc; /* Fondo azul pastel suave */
 }
 
 .container {
@@ -23,12 +22,16 @@ h1 {
     margin-bottom: 40px;
     font-size: 2.5em;
     font-family: "Rubik", sans-serif;
-    color: #333;
-    background-color: #ffffff64;
+    background-color: #ffffff80;
     backdrop-filter: blur(2px);
-    padding: 5px;
+    padding: 10px;
     border-radius: 15px;
+    color: #2a5d84; /* Tono azul pastel más oscuro */
+    max-width: 700px;
+    margin: auto;
+    margin-bottom: 29px;
 }
+
 /* Ajuste para el contenedor principal */
 .card-grid {
     display: grid;
@@ -51,10 +54,10 @@ h1 {
 /* Estilo para cada card */
 .card {
     text-decoration: none;
-    background-color: #ffffff64;
+    background-color: #ffffff80;
     backdrop-filter: blur(2px);
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
     padding: 1rem;
@@ -83,14 +86,14 @@ h1 {
 .card-title {
     padding: 15px;
     font-size: 1.2em;
-    color: #333;
+    color: #2a5d84;
     text-align: center;
 }
 
 /* Estilo para los botones dentro de la card */
 .card-buttons a {
-    background-color: dodgerblue;
-    color: black;
+    background-color: #4a90e2; /* Azul pastel */
+    color: white;
     padding: 8px;
     border-radius: 8px;
     text-decoration: none;
@@ -99,20 +102,22 @@ h1 {
 }
 
 .card-buttons a:visited {
-    color: black;
+    color: white;
 }
 
-
+.card-buttons a:hover {
+    background-color: #357abd; /* Azul pastel más oscuro */
+}
 
 footer {
     margin-top: 40px;
     text-align: center;
     font-size: 0.9em;
-    color: #333;
+    color: #2a5d84;
 }
 
 footer a {
-    color: dodgerblue;
+    color: #4a90e2;
     text-decoration: none;
     font-weight: bold;
 }
@@ -129,8 +134,9 @@ footer a:hover {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: #ffffff80;
+    border: solid 1px #39617f;
 }
-
 
 /* Animación de desvanecimiento */
 @keyframes fadeIn {
@@ -141,17 +147,6 @@ footer a:hover {
     to {
         opacity: 1;
         transform: scale(1);
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-        transform: scale(1);
-    }
-    to {
-        opacity: 0;
-        transform: scale(0.95);
     }
 }
 
@@ -167,7 +162,6 @@ footer a:hover {
     display: none;
 }
 
-
 /* Estilos para el preloader */
 #preloader {
     position: fixed;
@@ -175,7 +169,7 @@ footer a:hover {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #f8f8f8;
+    background: #e4f0fc;
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -195,7 +189,7 @@ footer a:hover {
 .book .back {
     width: 100%;
     height: 100%;
-    background: #262626;
+    background: #4a90e2;
     position: absolute;
     left: 0;
     top: 0;
@@ -242,9 +236,8 @@ footer a:hover {
 #about h2 {
     font-size: 2em;
     font-family: "Rubik", sans-serif;
-    color: #333;
+    color: #2a5d84;
     margin-bottom: 20px;
-    text-align: center;
 }
 
 #about p {
@@ -255,7 +248,7 @@ footer a:hover {
 }
 
 #about a {
-    color: dodgerblue;
+    color: #4a90e2;
     text-decoration: none;
     font-weight: bold;
 }
@@ -271,7 +264,7 @@ footer a:hover {
 }
 
 .category-button {
-    background-color: dodgerblue; /* Color de fondo */
+    background-color: #4a90e2;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -286,11 +279,11 @@ footer a:hover {
 }
 
 .category-button:hover {
-    background-color: rgb(33, 82, 131); /* Color al pasar el mouse */
+    background-color: #357abd;
 }
 
 .category-button.active {
-    background-color: #357a38; /* Color para el botón activo */
+    background-color: #357a38;
     font-weight: bold;
 }
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PR Argentina</title>
+    <title>LawPortal - Argentina</title>
     <link rel="icon" href="./assets/img/logo.png" type="image/png">
     
     <!-- Meta Descripción -->
@@ -38,6 +38,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<link rel="manifest" href="./manifest.json">
+
 
 </head>
 <body id="BackGround">
@@ -52,7 +54,7 @@
         </div>
         
         <section class="container">
-            <h1>P.R Argentina</h1>
+            <h1>LawPortal - Argentina</h1>
     
             <input type="text" id="searchBar" placeholder="Buscar por título...">
     
@@ -63,8 +65,8 @@
         </section>
     
         <section id="about">
-            <h2>Sobre Portal de Redireccionamiento</h2>
-            <p>Portal de Redireccionamiento es una web diseñada para ayudarte a encontrar el material más rápido que cualquier otra plataforma, permitiéndote descargar archivos PDF o revisar los comentarios de abogados sobre las leyes. Próximamente, agregaremos más herramientas para mejorar tu experiencia.</p>
+            <h2>Sobre LawPortal</h2>
+            <p>LawPortal es una web diseñada para ayudarte a encontrar el material más rápido que cualquier otra plataforma, permitiéndote descargar archivos PDF o revisar los comentarios de abogados sobre las leyes. Próximamente, agregaremos más herramientas para mejorar tu experiencia.</p>
             <p>Si tienes sugerencias de cambios o cosas para agregar, no dudes en enviarnos un mensaje al siguiente correo: <a href="mailto:olympianshop1@gmail.com">olympianshop1@gmail.com</a>.</p>
             <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Ayudame en Ko-fi', '#29abe0', 'T6T411BTB2');kofiwidget2.draw();</script> 
         </section>
@@ -77,6 +79,18 @@
     
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/test.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('./service-worker.js')
+            .then((registration) => {
+              console.log('Service Worker registrado con éxito:', registration);
+            })
+            .catch((error) => {
+              console.log('Fallo al registrar el Service Worker:', error);
+            });
+        }
+      </script>
+      
 
 </body>
 </html>
