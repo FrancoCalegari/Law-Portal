@@ -88,6 +88,7 @@ h1 {
     font-size: 1.2em;
     color: #2a5d84;
     text-align: center;
+    text-transform: uppercase;
 }
 
 /* Estilo para los botones dentro de la card */
