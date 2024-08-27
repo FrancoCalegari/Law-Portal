@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 import json
+import os
+import shutil
 
 class CRUDApp:
     def __init__(self, root):
@@ -9,61 +11,51 @@ class CRUDApp:
         self.data = []
         self.filtered_data = []
         self.selected_index = None
-
-        # Configuración de la interfaz gráfica
         self.create_widgets()
 
     def create_widgets(self):
-        # Estilo general de la aplicación
         style = ttk.Style()
         style.configure("TLabel", font=("Arial", 12))
         style.configure("TButton", font=("Arial", 12))
         style.configure("TEntry", font=("Arial", 12))
-        
-        # Marco principal
+
         main_frame = tk.Frame(self.root, bg="#f0f0f0")
         main_frame.pack(fill="both", expand=True, padx=20, pady=20)
 
-        # Título de la aplicación
         title_label = tk.Label(main_frame, text="Gestor de Códigos", font=("Arial", 16, "bold"), bg="#f0f0f0", fg="#333")
-        title_label.grid(row=0, column=0, columnspan=2, pady=10)
+        title_label.grid(row=0, column=0, columnspan=3, pady=10)
 
-        # Botones de carga y guardado
         self.load_button = ttk.Button(main_frame, text="Cargar JSON", command=self.load_json)
         self.load_button.grid(row=1, column=0, padx=5, pady=5, sticky="ew")
 
         self.save_button = ttk.Button(main_frame, text="Guardar JSON", command=self.save_json)
         self.save_button.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
 
-        # Campo de búsqueda
         self.search_label = ttk.Label(main_frame, text="Buscar:", background="#f0f0f0")
         self.search_label.grid(row=2, column=0, padx=5, pady=5, sticky="e")
 
         self.search_entry = ttk.Entry(main_frame, width=40)
-        self.search_entry.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
+        self.search_entry.grid(row=2, column=1, columnspan=2, padx=5, pady=5, sticky="ew")
         self.search_entry.bind("<KeyRelease>", self.search_code)
 
-        # Lista de códigos
         self.code_list = tk.Listbox(main_frame, height=15, font=("Arial", 12))
-        self.code_list.grid(row=3, column=0, columnspan=2, padx=5, pady=5, sticky="nsew")
+        self.code_list.grid(row=3, column=0, columnspan=3, padx=5, pady=5, sticky="nsew")
         self.code_list.bind("<<ListboxSelect>>", self.display_selected)
 
-        # Campos de edición
         self.create_edit_fields(main_frame)
 
-        # Botones CRUD
         self.add_button = ttk.Button(main_frame, text="Agregar", command=self.add_code)
-        self.add_button.grid(row=9, column=0, padx=5, pady=5, sticky="ew")
+        self.add_button.grid(row=10, column=0, padx=5, pady=5, sticky="ew")
 
         self.update_button = ttk.Button(main_frame, text="Actualizar", command=self.update_code)
-        self.update_button.grid(row=9, column=1, padx=5, pady=5, sticky="ew")
+        self.update_button.grid(row=10, column=1, padx=5, pady=5, sticky="ew")
 
         self.delete_button = ttk.Button(main_frame, text="Eliminar", command=self.delete_code)
-        self.delete_button.grid(row=10, column=0, columnspan=2, padx=5, pady=5, sticky="ew")
+        self.delete_button.grid(row=10, column=2, padx=5, pady=5, sticky="ew")
 
-        # Configurar el diseño responsivo
         main_frame.grid_columnconfigure(0, weight=1)
         main_frame.grid_columnconfigure(1, weight=1)
+        main_frame.grid_columnconfigure(2, weight=1)
         main_frame.grid_rowconfigure(3, weight=1)
 
     def create_edit_fields(self, parent_frame):
@@ -76,6 +68,25 @@ class CRUDApp:
             entry = ttk.Entry(parent_frame, width=40)
             entry.grid(row=i + 4, column=1, padx=5, pady=2, sticky="ew")
             self.entries[field] = entry
+
+        # Botón para seleccionar la imagen
+        self.select_image_button = ttk.Button(parent_frame, text="Seleccionar Imagen", command=self.select_image)
+        self.select_image_button.grid(row=6, column=2, padx=5, pady=2, sticky="ew")
+
+    def select_image(self):
+        file_path = filedialog.askopenfilename(filetypes=[("Image files", "*.png;*.jpg;*.jpeg;*.webp")])
+        if file_path:
+            # Copiar la imagen seleccionada a la carpeta destino
+            destination_folder = "./assets/img/portadas/"
+            if not os.path.exists(destination_folder):
+                os.makedirs(destination_folder)
+            file_name = os.path.basename(file_path)
+            destination_path = os.path.join(destination_folder, file_name)
+            shutil.copy(file_path, destination_path)
+
+            # Actualizar el campo "image" en el formulario
+            self.entries["image"].delete(0, tk.END)
+            self.entries["image"].insert(0, destination_path)
 
     def load_json(self):
         file_path = filedialog.askopenfilename(filetypes=[("JSON files", "*.json")])
