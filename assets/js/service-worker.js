@@ -6,7 +6,7 @@ const urlsToCache = [
   './assets/js/script.js',
   './assets/js/test.js',
   './assets/img/logo.png',
-  './assets/img/favicon.ico',
+  './assets/img/Logo.ico',
   // Agrega aquí más archivos que necesites para que funcionen sin conexión
 ];
 
