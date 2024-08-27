@@ -150,5 +150,29 @@
         "jurisdiction": "Provincial",
         "pdf": "http://mendozalegal.com/omeka/files/original/06e1f0caa8972c65c4fda4763751cfd0.pdf",
         "coment": ""
+    },
+    {
+        "title": "Ley general Del ambiente",
+        "link": "https://www.argentina.gob.ar/normativa/nacional/ley-25675-79980/texto",
+        "image": "./assets/img/portadas/LeyDeTrancitoMendoza.jpg",
+        "jurisdiction": "Nacional",
+        "pdf": "",
+        "coment": ""
+    },
+    {
+        "title": "Ley De Agua",
+        "link": "https://www.irrigacion.gov.ar/web/ley-de-aguas/",
+        "image": "./assets/img/portadas/Ley-General-de-Aguas-820x394.jpeg",
+        "jurisdiction": "Provincial",
+        "pdf": "",
+        "coment": ""
+    },
+    {
+        "title": "C\u00f3digo de mineria De mendoza",
+        "link": "https://www.mendoza.gov.ar/economia/wp-content/uploads/sites/44/2017/01/C%C3%B3digo-de-Miner%C3%ADa.pdf",
+        "image": "./assets/img/portadas/Ley-General-de-Aguas-820x394.jpeg",
+        "jurisdiction": "Provincial",
+        "pdf": "",
+        "coment": ""
     }
 ]
