@@ -2,7 +2,7 @@
     {
         "title": "CODIGO PROCESAL PENAL",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-23984-383/actualizacion",
-        "image": "https://images.cdn3.buscalibre.com/fit-in/360x360/d9/fb/d9fb47d1c1b2474c385cb6c1dac51f87.jpg",
+        "image": "./assets/img/portadas/CodigoProcesalPenal.webp",
         "jurisdiction": "Nacional",
         "pdf": "https://www.example.com/procesal-penal.pdf",
         "coment": "https://www.example.com/procesal-penal-comentarios"
@@ -10,7 +10,7 @@
     {
         "title": "CODIGO AERONAUTICO",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-17285-24963/actualizacion",
-        "image": "https://http2.mlstatic.com/D_NQ_NP_710813-MLA26936708643_032018-O.webp",
+        "image": "./assets/img/portadas/CodigoAeronautico.webp",
         "jurisdiction": "Nacional",
         "pdf": "https://www.example.com/aeronautico.pdf",
         "coment": ""
@@ -18,7 +18,7 @@
     {
         "title": "CODIGO DE MINERIA",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-1919-43797/actualizacion",
-        "image": "https://edicionesdelpais.com/editorial/wp-content/uploads/2019/04/Codigo_Mineria_tapa.jpg",
+        "image": "./assets/img/portadas/Codigo_Mineria_tapa.webp",
         "jurisdiction": "Nacional",
         "pdf": "",
         "coment": "https://www.example.com/mineria-comentarios"
@@ -26,7 +26,7 @@
     {
         "title": "C\u00f3digo Procesal Laboral",
         "link": "https://www.argentina.gob.ar/normativa/provincial/ley-2144-123456789-0abc-defg-441-2000mvorpyel/actualizacion",
-        "image": "https://www.rubinzal.com.ar/expedicion/tapas/tapa_2319.jpg.jpg",
+        "image": "./assets/img/portadas/CodgioProcesalLaboralDeLaProvinciaDeSantaFE.webp",
         "jurisdiction": "Provincial",
         "pdf": "https://www.example.com/procesal-laboral.pdf",
         "coment": "https://www.example.com/procesal-laboral-comentarios"
@@ -34,7 +34,7 @@
     {
         "title": "CODIGO ELECTORAL NACIONAL",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-19945-19442/actualizacion",
-        "image": "https://acdn.mitiendanube.com/stores/081/038/products/whatsapp-image-2023-12-22-at-3-24-28-pm-4d3b0cbd929154079b17032700034334-1024-1024.jpeg",
+        "image": "./assets/img/portadas/CodigoElectoralNacionalConcordandoYComentado.webp",
         "jurisdiction": "Nacional",
         "pdf": "",
         "coment": ""
@@ -42,7 +42,7 @@
     {
         "title": "CODIGO ADUANERO",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-22415-16536/actualizacion",
-        "image": "https://acdn.mitiendanube.com/stores/196/954/products/codigoaduanero20221-d17666485ac4e474a216546204232492-480-0.png",
+        "image": "./assets/img/portadas/CodigoAduanero.webp",
         "jurisdiction": "Nacional",
         "pdf": "https://www.example.com/aduanero.pdf",
         "coment": "https://www.example.com/aduanero-comentarios"
@@ -50,7 +50,7 @@
     {
         "title": "CODIGO ALIMENTARIO ARGENTINO",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-18284-21841/texto",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAnoYkPkpmRfwp0isOKmK2-fBdurhwVjt79g&s",
+        "image": "./assets/img/portadas/CodigoAlimentario.webp",
         "jurisdiction": "Nacional",
         "pdf": "https://www.example.com/alimentario.pdf",
         "coment": ""
@@ -58,7 +58,7 @@
     {
         "title": "C\u00f3digo procesal civil de la provincia de Mendoza",
         "link": "https://www.argentina.gob.ar/normativa/provincial/ley-2269-123456789-0abc-defg-962-2000mvorpyel/actualizacion",
-        "image": "https://mendozalegal.com/wp-content/uploads/2020/02/4-Tapa-Codigo-Procesal-230x332.jpg",
+        "image": "./assets/img/portadas/CodigoProcesalDeLaProvinciaDeMendoza.webp",
         "jurisdiction": "Provincial",
         "pdf": "https://www.example.com/procesal-civil-mendoza.pdf",
         "coment": "https://www.example.com/procesal-civil-mendoza-comentarios"
@@ -66,7 +66,7 @@
     {
         "title": "Senado Mendoza",
         "link": "https://www.senadomendoza.gob.ar/",
-        "image": "https://www.senadomendoza.gob.ar/wp-content/uploads/2021/11/WhatsApp-Image-2021-11-08-at-13.19.41-1024x683.jpeg",
+        "image": "./assets/img/portadas/SenadoMendoza.webp",
         "jurisdiction": "Provincial",
         "pdf": "",
         "coment": "https://www.example.com/senado-mendoza-comentarios"
@@ -74,7 +74,7 @@
     {
         "title": "C\u00d3DIGO PROCESAL PENAL DE MENDOZA",
         "link": "https://www.argentina.gob.ar/normativa/provincial/ley-6730-123456789-0abc-defg-037-6001mvorpyel",
-        "image": "https://acdn.mitiendanube.com/stores/001/293/016/products/tapa_cpp-comentado_penasco1-979b0f2a33cf61dac116448447827406-640-0.jpg",
+        "image": "./assets/img/portadas/CodigoProcesalPenalProvinciaDeMendoza.webp",
         "jurisdiction": "Provincial",
         "pdf": "https://www.example.com/procesal-penal-mendoza.pdf",
         "coment": ""
@@ -82,7 +82,7 @@
     {
         "title": "Convenci\u00f3n Americana DDHH",
         "link": "https://www.argentina.gob.ar/sites/default/files/derechoshumanos_publicaciones_colecciondebolsillo_10_convencion_americana_ddhh.pdf",
-        "image": "https://bibliotecacorteidh.winkel.la/content/images/thumbs/0000825_convencion-americana-sobre-derechos-humanos-comentario-segunda-edicion_550.png",
+        "image": "./assets/img/portadas/ConvenciosAmericanaSobreDerechosHumanos.webp",
         "jurisdiction": "Internacional",
         "pdf": "https://www.example.com/ddhh.pdf",
         "coment": "https://www.example.com/ddhh-comentarios"
@@ -90,7 +90,7 @@
     {
         "title": "CODIGO PROCESAL CIVIL Y COMERCIAL DE LA NACION",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-17454-16547/actualizacion",
-        "image": "https://www.rubinzal.com.ar/expedicion/tapas/tapa_2465.jpg",
+        "image": "./assets/img/portadas/CodigoProcesalCivilYComercialDeLaNacion.webp",
         "jurisdiction": "Nacional",
         "pdf": "https://www.example.com/civil-comercial.pdf",
         "coment": "https://www.example.com/civil-comercial-comentarios"
@@ -98,7 +98,7 @@
     {
         "title": "C\u00f3digo Procesal Civil, Comercial y Tributario de la Provincia de Mendoza",
         "link": "https://www.argentina.gob.ar/normativa/provincial/ley-9001-123456789-0abc-defg-100-9000mvorpyel/actualizacion",
-        "image": "https://acdn.mitiendanube.com/stores/001/293/016/products/cpc_revisado1-59c9d01a54049d82f616504569158361-640-0.jpg",
+        "image": "./assets/img/portadas/CodigoProcesalCivilComercialYTributarioProvinciaDeMendoza.webp",
         "jurisdiction": "Provincial",
         "pdf": "https://www.example.com/procesal-civil-comercial-tributario-mendoza.pdf",
         "coment": "https://www.example.com/procesal-civil-comercial-tributario-mendoza-comentarios"
@@ -106,7 +106,7 @@
     {
         "title": "Constituci\u00f3n de la provincia de Mendoza",
         "link": "https://www.argentina.gob.ar/normativa/provincial/ley-0-123456789-0abc-defg-000-0000mvorpyel/actualizacion",
-        "image": "https://storage-aws-production.publica.la/asc-libros-juridicos-sa/issues/2020/07/SCQA0WEl5ua6mbre/1596130174_cover.jpeg",
+        "image": "./assets/img/portadas/ConstitucionDeLaProvinciaDeMendoza.webp",
         "jurisdiction": "Provincial",
         "pdf": "",
         "coment": "https://www.example.com/constitucion-mendoza-comentarios"
@@ -114,7 +114,7 @@
     {
         "title": "CODIGO PENAL DE LA NACION ARGENTINA",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-11179-16546/actualizacion",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1rO9dauRoGQVORuLQ7WNE3gYoS7ezwwcjag&s",
+        "image": "./assets/img/portadas/CodigoPenal.webp",
         "jurisdiction": "Nacional",
         "pdf": "https://www.example.com/penal.pdf",
         "coment": "https://www.example.com/penal-comentarios"
@@ -122,7 +122,7 @@
     {
         "title": "CODIGO CIVIL Y COMERCIAL DE LA NACION",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-26944-19442/actualizacion",
-        "image": "https://edicionesdyd.com.ar/wp-content/webp-express/webp-images/uploads/2024/03/D_719185-MLA74794814756_032024-F.jpg.webp",
+        "image": "./assets/img/portadas/CodigoProcesalCivilYComercialDeLaNacion.webp",
         "jurisdiction": "Nacional",
         "pdf": "https://www.example.com/civil-comercial.pdf",
         "coment": "https://www.example.com/civil-comercial-comentarios"
@@ -130,7 +130,7 @@
     {
         "title": "CONSTITUCI\u00f3N NACIONAL",
         "link": "https://www.argentina.gob.ar/normativa/nacional/ley-24430-804/texto",
-        "image": "https://acdn.mitiendanube.com/stores/984/757/products/constitucion-nacional-a134a0512fc5bdc93b15606153747016-640-0.jpg",
+        "image": "./assets/img/portadas/ConstitucionNacional.webp",
         "jurisdiction": "Nacional",
         "pdf": "",
         "coment": ""
