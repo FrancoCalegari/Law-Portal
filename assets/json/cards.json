@@ -134,5 +134,21 @@
         "jurisdiction": "Nacional",
         "pdf": "",
         "coment": ""
+    },
+    {
+        "title": "Ley De Transito",
+        "link": "https://www.argentina.gob.ar/normativa/nacional/818/actualizacion",
+        "image": "./assets/img/portadas/LeyDeTrancitoMendoza.jpg",
+        "jurisdiction": "Nacional",
+        "pdf": "",
+        "coment": ""
+    },
+    {
+        "title": "C\u00f3digo Procesal de Familia y Violencia Familiar",
+        "link": "https://www.argentina.gob.ar/normativa/provincial/ley-9120-123456789-0abc-defg-021-9000mvorpyel/actualizacion",
+        "image": "./assets/img/portadas/C\u00f3digoProcesaldeFamiliayViolenciaFamiliar.jpeg",
+        "jurisdiction": "Provincial",
+        "pdf": "http://mendozalegal.com/omeka/files/original/06e1f0caa8972c65c4fda4763751cfd0.pdf",
+        "coment": ""
     }
 ]
