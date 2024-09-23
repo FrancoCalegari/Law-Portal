@@ -8,7 +8,7 @@ body {
     font-family: Arial, sans-serif;
     color: #333;
     margin: 0;
-    padding: 20px;
+    
     background-color: #e4f0fc; /* Fondo azul pastel suave */
 }
 
@@ -19,7 +19,6 @@ body {
 }
 
 h1 {
-    margin-bottom: 40px;
     font-size: 2.5em;
     font-family: "Rubik", sans-serif;
     background-color: #ffffff80;
@@ -30,6 +29,7 @@ h1 {
     max-width: 700px;
     margin: auto;
     margin-bottom: 29px;
+    margin-top: 20px;
 }
 
 /* Ajuste para el contenedor principal */
@@ -115,12 +115,19 @@ footer {
     text-align: center;
     font-size: 0.9em;
     color: #2a5d84;
+    background-color: #ffffff80;
+    border-radius: 15px 15px 0px 0px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 footer a {
     color: #4a90e2;
     text-decoration: none;
     font-weight: bold;
+
 }
 
 footer a:hover {

@@ -3,6 +3,7 @@ from tkinter import ttk, messagebox, filedialog
 import json
 import os
 import shutil
+from unidecode import unidecode
 
 class CRUDApp:
     def __init__(self, root):
@@ -65,7 +66,12 @@ class CRUDApp:
         for i, field in enumerate(fields):
             label = ttk.Label(parent_frame, text=field.capitalize(), background="#f0f0f0")
             label.grid(row=i + 4, column=0, sticky="e", padx=5, pady=2)
-            entry = ttk.Entry(parent_frame, width=40)
+
+            if field == "jurisdiction":
+                entry = ttk.Combobox(parent_frame, values=["Nacional", "Provincial", "Internacional"], state="readonly")
+            else:
+                entry = ttk.Entry(parent_frame, width=40)
+            
             entry.grid(row=i + 4, column=1, padx=5, pady=2, sticky="ew")
             self.entries[field] = entry
 
@@ -123,7 +129,12 @@ class CRUDApp:
 
         for key, entry in self.entries.items():
             entry.delete(0, tk.END)
-            entry.insert(0, selected_code.get(key, ""))
+            value = selected_code.get(key, "")
+
+            if key == "jurisdiction" and isinstance(entry, ttk.Combobox):
+                entry.set(value)
+            else:
+                entry.insert(0, value)
 
     def add_code(self):
         new_code = {key: entry.get() for key, entry in self.entries.items()}
@@ -160,8 +171,8 @@ class CRUDApp:
         self.selected_index = None
 
     def search_code(self, event):
-        query = self.search_entry.get().lower()
-        self.filtered_data = [code for code in self.data if query in code["title"].lower()]
+        query = unidecode(self.search_entry.get().lower())
+        self.filtered_data = [code for code in self.data if query in unidecode(code["title"].lower())]
         self.refresh_code_list()
 
     def clear_entries(self):
