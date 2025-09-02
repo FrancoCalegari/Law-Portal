@@ -99,8 +99,8 @@ h1 {
 
 /* Estilo para la imagen dentro de la card */
 .card img {
-    width: 100%;
-    height: 250px;
+    width: 10rem;
+    height: 220px;
     object-fit: cover;
     border-radius: 15px;
 }
