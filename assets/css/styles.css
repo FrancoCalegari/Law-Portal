@@ -12,6 +12,33 @@ body {
     background-color: #e4f0fc; /* Fondo azul pastel suave */
 }
 
+/* Fondo con imagen */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -2; /* siempre detrás */
+}
+
+.background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(250px) brightness(1.5); /* blur intenso + oscurecer */
+  transform: scale(1.1); /* para evitar bordes feos por el blur */
+}
+
+/* Contenido principal por encima */
+main, footer {
+  position: relative;
+  z-index: 1;
+  color: #fff; /* contraste sobre el fondo */
+}
+
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -111,28 +138,73 @@ h1 {
 }
 
 footer {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 0.9em;
-    color: #2a5d84;
-    background-color: #ffffff80;
-    border-radius: 15px 15px 0px 0px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: #e4f0fc; /* fondo oscuro semi-transparente */
+  color: #2a5d84;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-footer a {
-    color: #4a90e2;
-    text-decoration: none;
-    font-weight: bold;
-
+footer .contactContainer {
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
 }
 
-footer a:hover {
-    text-decoration: underline;
+footer .socialMediaContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem; /* espacio entre columnas */
+  flex-wrap: wrap;
 }
+
+footer .socialMedia {
+  display: flex;
+  gap: 1rem;
+}
+
+footer .socialMedia a {
+  color: #2a5d84;
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+footer .socialMedia a:hover {
+  color: #1e90ff; /* color de acento al pasar el mouse */
+  transform: scale(1.2);
+}
+
+footer .logo img {
+  height: 80px;
+  filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+  border-radius: 25px;
+}
+
+footer p {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+footer .footer-credit a {
+  color: #1e90ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+footer .footer-credit a:hover {
+  color: #1e90ff;
+}
+
+@media (max-width: 600px) {
+  footer .socialMediaContainer {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
 
 #searchBar {
     width: 85%;

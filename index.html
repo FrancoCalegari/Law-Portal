@@ -36,21 +36,26 @@
     <link rel="stylesheet" href="./assets/css/styles.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-<link rel="manifest" href="./manifest.json">
-<meta name="theme-color" content="#29abe0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#29abe0">
+    <script src="https://kit.fontawesome.com/274f77f0e3.js" crossorigin="anonymous"></script>
 
-<script id="chatBroEmbedCode">
-    /* Chatbro Widget Embed Code Start */
-    function ChatbroLoader(chats,async){async=!1!==async;var params={embedChatsParameters:chats instanceof Array?chats:[chats],lang:navigator.language||navigator.userLanguage,needLoadCode:'undefined'==typeof Chatbro,embedParamsVersion:localStorage.embedParamsVersion,chatbroScriptVersion:localStorage.chatbroScriptVersion},xhr=new XMLHttpRequest;xhr.withCredentials=!0,xhr.onload=function(){eval(xhr.responseText)},xhr.onerror=function(){console.error('Chatbro loading error')},xhr.open('GET','https://www.chatbro.com/embed.js?'+btoa(unescape(encodeURIComponent(JSON.stringify(params)))),async),xhr.send()}
-    /* Chatbro Widget Embed Code End */
-    ChatbroLoader({encodedChatId: '28zG1'});
-</script>
+    <script id="chatBroEmbedCode">
+        /* Chatbro Widget Embed Code Start */
+        function ChatbroLoader(chats,async){async=!1!==async;var params={embedChatsParameters:chats instanceof Array?chats:[chats],lang:navigator.language||navigator.userLanguage,needLoadCode:'undefined'==typeof Chatbro,embedParamsVersion:localStorage.embedParamsVersion,chatbroScriptVersion:localStorage.chatbroScriptVersion},xhr=new XMLHttpRequest;xhr.withCredentials=!0,xhr.onload=function(){eval(xhr.responseText)},xhr.onerror=function(){console.error('Chatbro loading error')},xhr.open('GET','https://www.chatbro.com/embed.js?'+btoa(unescape(encodeURIComponent(JSON.stringify(params)))),async),xhr.send()}
+        /* Chatbro Widget Embed Code End */
+        ChatbroLoader({encodedChatId: '28zG1'});
+    </script>
 
 
 </head>
-<body id="BackGround">
+<body>
+        <!-- Fondo con imágenes -->
+    <div class="background">
+        <img src="./assets/img/fondo.png" alt="Fondo difuminado">
+    </div>
 
     <main>
         <div id="preloader">
@@ -100,7 +105,32 @@
 
 
 <footer>
-    code by <a href="https://francocalegari.github.io/PortfolioFrancoCalegari/" target="_blank"> Franco Calegari</a>, V0.1.8
+        <!-- Redes sociales + Logo -->
+    <div class="contactContainer">
+        <div class="socialMediaContainer">
+            <div class="socialMedia">
+                <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.threads.com/" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="logo">
+                <img src="./assets/img/Logo.png" alt="Law-Portal" style="height: 80px;">
+            </div>
+            <div class="socialMedia">
+                <a href="https://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://discord.gg" target="_blank"><i class="fa-brands fa-discord"></i></a>
+                <a href="https://www.spotify.com" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <p>&copy; 2025 Law-Portal v0.2 Todos los derechos reservados.</p>
+
+    <div class="footer-credit">
+        <a href="https://francocalegari.github.io/PortfolioFrancoCalegari/" target="_blank">
+            Code by Franco Calegari
+        </a>
+    </div>
 </footer>
       
 
