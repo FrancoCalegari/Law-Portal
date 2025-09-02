@@ -39,6 +39,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 <link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#29abe0">
 
 <script id="chatBroEmbedCode">
     /* Chatbro Widget Embed Code Start */
@@ -85,17 +86,7 @@
     
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/test.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('./service-worker.js')
-            .then((registration) => {
-              console.log('Service Worker registrado con éxito:', registration);
-            })
-            .catch((error) => {
-              console.log('Fallo al registrar el Service Worker:', error);
-            });
-        }
-      </script>
+    <script src="./service-worker.js"></script>
 
       <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PVVN74LFGE"></script>
