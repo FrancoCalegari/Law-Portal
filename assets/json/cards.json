@@ -161,10 +161,10 @@
     },
     {
         "title": "Ley De Agua",
-        "link": "https://www.irrigacion.gov.ar/web/ley-de-aguas/",
+        "link": "https://www.mendoza.gov.ar/wp-content/uploads/sites/15/2021/04/LEY-DE-AGUAS.pdf",
         "image": "./assets/img/portadas/Ley-General-de-Aguas-820x394.jpeg",
         "jurisdiction": "Provincial",
-        "pdf": "",
+        "pdf": "https://www.mendoza.gov.ar/wp-content/uploads/sites/15/2021/04/LEY-DE-AGUAS.pdf",
         "coment": ""
     },
     {
