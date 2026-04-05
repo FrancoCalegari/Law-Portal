@@ -1,5 +1,25 @@
 /* ——— ADMIN DASHBOARD ——— admin.js ——— */
 
+/* ── SIDEBAR MOBILE TOGGLE ── */
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const backdrop = document.getElementById('sidebarBackdrop');
+    
+    if (sidebar.classList.contains('open')) {
+        closeSidebar();
+    } else {
+        sidebar.classList.add('open');
+        if (backdrop) backdrop.classList.add('active');
+    }
+}
+
+function closeSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const backdrop = document.getElementById('sidebarBackdrop');
+    if (sidebar) sidebar.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('active');
+}
+
 /* ── MODAL SYSTEM ── */
 function openModal(type) {
     const overlay = document.getElementById('modal-' + type);

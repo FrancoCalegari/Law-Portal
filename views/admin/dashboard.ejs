@@ -17,6 +17,9 @@
         <div class="sidebar-header">
             <img src="/img/Logo.png" alt="LawPortal" class="sidebar-logo" onerror="this.style.display='none'">
             <span class="sidebar-title">LawPortal</span>
+            <button class="sidebar-close-btn" onclick="closeSidebar()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
         </div>
         <nav class="sidebar-nav">
             <a href="/admin/dashboard" class="nav-item active">
@@ -44,10 +47,11 @@
 
     <!-- MAIN CONTENT -->
     <div class="dashboard-main">
+        <div id="sidebarBackdrop" class="sidebar-backdrop" onclick="closeSidebar()"></div>
 
         <!-- TOPBAR -->
         <header class="topbar">
-            <button class="sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">
+            <button class="sidebar-toggle" onclick="toggleSidebar()">
                 <i class="fa-solid fa-bars"></i>
             </button>
             <div class="topbar-title">
@@ -118,38 +122,38 @@
                     <tbody>
                         <% codes.forEach(function(code, idx) { %>
                         <tr data-title="<%= code.title.toLowerCase() %>">
-                            <td class="td-id"><%= idx + 1 %></td>
-                            <td class="td-img">
+                            <td class="td-id" data-label="#"><%= idx + 1 %></td>
+                            <td class="td-img" data-label="Imagen">
                                 <img src="<%= code.image_url %>"
                                      alt="<%= code.title %>"
                                      class="table-thumbnail"
                                      onerror="this.src='/img/portadas/default.webp'; this.onerror=null;">
                             </td>
-                            <td class="td-title">
+                            <td class="td-title" data-label="Título">
                                 <strong><%= code.title %></strong>
                                 <br>
                                 <a href="<%= code.link %>" target="_blank" class="td-link">
                                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver enlace
                                 </a>
                             </td>
-                            <td>
+                            <td data-label="Jurisdicción">
                                 <span class="badge badge-<%= code.jurisdiction.toLowerCase() %>"><%= code.jurisdiction %></span>
                             </td>
-                            <td>
+                            <td data-label="PDF">
                                 <% if (code.pdf && code.pdf.trim() !== '') { %>
                                 <a href="<%= code.pdf %>" target="_blank" class="badge badge-pdf"><i class="fa-solid fa-file-pdf"></i> PDF</a>
                                 <% } else { %>
                                 <span class="td-empty">—</span>
                                 <% } %>
                             </td>
-                            <td>
+                            <td data-label="Comentado">
                                 <% if (code.coment && code.coment.trim() !== '') { %>
                                 <a href="<%= code.coment %>" target="_blank" class="badge badge-coment"><i class="fa-solid fa-comments"></i></a>
                                 <% } else { %>
                                 <span class="td-empty">—</span>
                                 <% } %>
                             </td>
-                            <td class="td-actions">
+                            <td class="td-actions" data-label="Acciones">
                                 <button class="btn-action btn-edit"
                                     onclick='openEditModal(<%- JSON.stringify(code) %>)'>
                                     <i class="fa-solid fa-pen-to-square"></i>
