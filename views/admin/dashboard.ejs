@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin — LawPortal</title>
+    <link rel="icon" href="/img/Logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/274f77f0e3.js" crossorigin="anonymous"></script>
+</head>
+<body class="dashboard-body">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="/img/Logo.png" alt="LawPortal" class="sidebar-logo" onerror="this.style.display='none'">
+            <span class="sidebar-title">LawPortal</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/admin/dashboard" class="nav-item active">
+                <i class="fa-solid fa-table-cells-large"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="/" target="_blank" class="nav-item">
+                <i class="fa-solid fa-globe"></i>
+                <span>Ver Portal</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="sidebar-user">
+                <div class="user-avatar"><i class="fa-solid fa-user-shield"></i></div>
+                <div class="user-info">
+                    <span class="user-name"><%= adminUser %></span>
+                    <span class="user-role">Administrador</span>
+                </div>
+            </div>
+            <a href="/admin/logout" class="btn-logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="dashboard-main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <button class="sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="topbar-title">
+                <h2>Gestión de Códigos Legales</h2>
+            </div>
+            <button class="btn-primary" onclick="openModal('create')">
+                <i class="fa-solid fa-plus"></i> Nuevo Código
+            </button>
+        </header>
+
+        <div class="dashboard-content">
+
+            <!-- ALERTAS -->
+            <% if (success) { %>
+            <div class="alert alert-success" id="alertMsg">
+                <i class="fa-solid fa-circle-check"></i> <%= success %>
+            </div>
+            <% } %>
+            <% if (error) { %>
+            <div class="alert alert-error" id="alertMsg">
+                <i class="fa-solid fa-circle-exclamation"></i> <%= error %>
+            </div>
+            <% } %>
+
+            <!-- STATS CARDS -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon stat-total"><i class="fa-solid fa-book-open"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number"><%= codes.length %></span>
+                        <span class="stat-label">Total Códigos</span>
+                    </div>
+                </div>
+                <% Object.entries(stats).forEach(function([juris, count]) { %>
+                <div class="stat-card">
+                    <div class="stat-icon stat-<%= juris.toLowerCase() %>"><i class="fa-solid fa-landmark"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number"><%= count %></span>
+                        <span class="stat-label"><%= juris %></span>
+                    </div>
+                </div>
+                <% }); %>
+            </div>
+
+            <!-- SEARCH BAR -->
+            <div class="table-toolbar">
+                <div class="table-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="tableSearch" placeholder="Buscar en la tabla..." oninput="filterTable()">
+                </div>
+                <span class="table-count" id="tableCount"><%= codes.length %> registros</span>
+            </div>
+
+            <!-- TABLE -->
+            <div class="table-wrapper">
+                <table class="data-table" id="codesTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Imagen</th>
+                            <th>Título</th>
+                            <th>Jurisdicción</th>
+                            <th>PDF</th>
+                            <th>Comentado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% codes.forEach(function(code, idx) { %>
+                        <tr data-title="<%= code.title.toLowerCase() %>">
+                            <td class="td-id"><%= idx + 1 %></td>
+                            <td class="td-img">
+                                <img src="<%= code.image_url %>"
+                                     alt="<%= code.title %>"
+                                     class="table-thumbnail"
+                                     onerror="this.src='/img/portadas/default.webp'; this.onerror=null;">
+                            </td>
+                            <td class="td-title">
+                                <strong><%= code.title %></strong>
+                                <br>
+                                <a href="<%= code.link %>" target="_blank" class="td-link">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver enlace
+                                </a>
+                            </td>
+                            <td>
+                                <span class="badge badge-<%= code.jurisdiction.toLowerCase() %>"><%= code.jurisdiction %></span>
+                            </td>
+                            <td>
+                                <% if (code.pdf && code.pdf.trim() !== '') { %>
+                                <a href="<%= code.pdf %>" target="_blank" class="badge badge-pdf"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                                <% } else { %>
+                                <span class="td-empty">—</span>
+                                <% } %>
+                            </td>
+                            <td>
+                                <% if (code.coment && code.coment.trim() !== '') { %>
+                                <a href="<%= code.coment %>" target="_blank" class="badge badge-coment"><i class="fa-solid fa-comments"></i></a>
+                                <% } else { %>
+                                <span class="td-empty">—</span>
+                                <% } %>
+                            </td>
+                            <td class="td-actions">
+                                <button class="btn-action btn-edit"
+                                    onclick='openEditModal(<%- JSON.stringify(code) %>)'>
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button class="btn-action btn-delete"
+                                    onclick="confirmDelete(<%= code.id %>, '<%= code.title.replace(/'/g, "\\'") %>')">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <% }); %>
+                        <% if (codes.length === 0) { %>
+                        <tr>
+                            <td colspan="7" class="td-empty-row">
+                                <i class="fa-solid fa-inbox"></i> No hay códigos cargados todavía.
+                            </td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: CREAR CÓDIGO -->
+    <div class="modal-overlay" id="modal-create" onclick="closeModalOnOverlay(event, 'create')">
+        <div class="modal">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-plus-circle"></i> Nuevo Código Legal</h3>
+                <button class="modal-close" onclick="closeModal('create')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form method="POST" action="/admin/codes" enctype="multipart/form-data" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group full">
+                        <label>Título <span class="required">*</span></label>
+                        <input type="text" name="title" placeholder="Ej: CÓDIGO CIVIL Y COMERCIAL" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full">
+                        <label>Enlace principal</label>
+                        <input type="url" name="link" placeholder="https://www.argentina.gob.ar/...">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Jurisdicción</label>
+                        <select name="jurisdiction">
+                            <option value="Nacional">Nacional</option>
+                            <option value="Provincial">Provincial</option>
+                            <option value="Internacional">Internacional</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>PDF (enlace)</label>
+                        <input type="url" name="pdf" placeholder="https://...">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full">
+                        <label>Comentado (enlace)</label>
+                        <input type="url" name="coment" placeholder="https://...">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full">
+                        <label>Imagen de portada</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" name="image" id="createImageInput" accept="image/*" onchange="previewImage(this, 'createPreview')">
+                            <label for="createImageInput" class="file-upload-label">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <span>Seleccionar imagen (se sube al Cloud Storage)</span>
+                            </label>
+                        </div>
+                        <img id="createPreview" class="img-preview" style="display:none;" alt="Preview">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" onclick="closeModal('create')">Cancelar</button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fa-solid fa-floppy-disk"></i> Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: EDITAR CÓDIGO -->
+    <div class="modal-overlay" id="modal-edit" onclick="closeModalOnOverlay(event, 'edit')">
+        <div class="modal">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-pen-to-square"></i> Editar Código Legal</h3>
+                <button class="modal-close" onclick="closeModal('edit')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form method="POST" id="editForm" action="/admin/codes/0/edit" enctype="multipart/form-data" class="modal-form">
+                <input type="hidden" name="existing_image_url"     id="editExistingImageUrl">
+                <input type="hidden" name="existing_image_file_id" id="editExistingImageFileId">
+                <div class="form-row">
+                    <div class="form-group full">
+                        <label>Título <span class="required">*</span></label>
+                        <input type="text" name="title" id="editTitle" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full">
+                        <label>Enlace principal</label>
+                        <input type="url" name="link" id="editLink" placeholder="https://...">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Jurisdicción</label>
+                        <select name="jurisdiction" id="editJurisdiction">
+                            <option value="Nacional">Nacional</option>
+                            <option value="Provincial">Provincial</option>
+                            <option value="Internacional">Internacional</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>PDF (enlace)</label>
+                        <input type="url" name="pdf" id="editPdf" placeholder="https://...">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full">
+                        <label>Comentado (enlace)</label>
+                        <input type="url" name="coment" id="editComent" placeholder="https://...">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full">
+                        <label>Imagen de portada</label>
+                        <img id="editCurrentImg" class="img-preview-current" src="" alt="Imagen actual">
+                        <div class="file-upload-wrapper" style="margin-top:.6rem">
+                            <input type="file" name="image" id="editImageInput" accept="image/*" onchange="previewImage(this, 'editPreview')">
+                            <label for="editImageInput" class="file-upload-label">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <span>Reemplazar imagen (opcional)</span>
+                            </label>
+                        </div>
+                        <img id="editPreview" class="img-preview" style="display:none;" alt="Nueva imagen">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" onclick="closeModal('edit')">Cancelar</button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fa-solid fa-floppy-disk"></i> Actualizar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: CONFIRMAR ELIMINACIÓN -->
+    <div class="modal-overlay" id="modal-delete" onclick="closeModalOnOverlay(event, 'delete')">
+        <div class="modal modal-sm">
+            <div class="modal-header modal-header-danger">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i> Eliminar Código</h3>
+                <button class="modal-close" onclick="closeModal('delete')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro que querés eliminar <strong id="deleteCodeTitle"></strong>?</p>
+                <p class="text-muted">Esta acción no se puede deshacer. Si el código tiene imagen en Cloud Storage, será eliminada también.</p>
+            </div>
+            <form method="POST" id="deleteForm" action="/admin/codes/0/delete">
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" onclick="closeModal('delete')">Cancelar</button>
+                    <button type="submit" class="btn-danger">
+                        <i class="fa-solid fa-trash"></i> Sí, eliminar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html>

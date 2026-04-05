@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login — LawPortal</title>
+    <link rel="icon" href="/img/Logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/274f77f0e3.js" crossorigin="anonymous"></script>
+</head>
+<body class="login-body">
+
+    <div class="login-bg">
+        <div class="login-bg-shape shape-1"></div>
+        <div class="login-bg-shape shape-2"></div>
+        <div class="login-bg-shape shape-3"></div>
+    </div>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-logo">
+                <img src="/img/Logo.png" alt="LawPortal" onerror="this.style.display='none'">
+                <div class="login-logo-icon">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+            </div>
+
+            <div class="login-header">
+                <h1>Panel de Administración</h1>
+                <p>Ingresá tus credenciales para continuar</p>
+            </div>
+
+            <% if (error) { %>
+            <div class="alert alert-error">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <%= error === 'session' ? 'Tu sesión expiró. Iniciá sesión nuevamente.' : error %>
+            </div>
+            <% } %>
+
+            <form method="POST" action="/admin/login" class="login-form">
+                <div class="form-group">
+                    <label for="username">
+                        <i class="fa-solid fa-user"></i> Usuario
+                    </label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Ingresá tu usuario"
+                        autocomplete="username"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fa-solid fa-lock"></i> Contraseña
+                    </label>
+                    <div class="input-icon-right">
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Ingresá tu contraseña"
+                            autocomplete="current-password"
+                            required>
+                        <button type="button" class="toggle-password" onclick="togglePassword()">
+                            <i class="fa-solid fa-eye" id="toggleIcon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-login" id="loginBtn">
+                    <span class="btn-text"><i class="fa-solid fa-right-to-bracket"></i> Ingresar</span>
+                    <span class="btn-loading" style="display:none"><i class="fa-solid fa-spinner fa-spin"></i> Verificando...</span>
+                </button>
+            </form>
+
+            <div class="login-footer-link">
+                <a href="/"><i class="fa-solid fa-arrow-left"></i> Volver al portal</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const input = document.getElementById('password');
+            const icon  = document.getElementById('toggleIcon');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+
+        document.querySelector('.login-form').addEventListener('submit', function() {
+            const btn     = document.getElementById('loginBtn');
+            const text    = btn.querySelector('.btn-text');
+            const loading = btn.querySelector('.btn-loading');
+            text.style.display    = 'none';
+            loading.style.display = 'inline-flex';
+            btn.disabled = true;
+        });
+    </script>
+</body>
+</html>
