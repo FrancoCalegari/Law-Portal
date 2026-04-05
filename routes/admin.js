@@ -3,6 +3,7 @@ const router   = express.Router();
 const multer   = require('multer');
 const spider   = require('../services/spiderApi');
 const { requireAuth } = require('../middleware/auth');
+const axios    = require('axios');
 
 // Multer: almacena en memoria para subir al Cloud Storage directamente
 const upload = multer({
@@ -84,18 +85,20 @@ router.post('/codes', requireAuth, upload.single('image'), async (req, res) => {
 
         // Si se subió una imagen, enviarla al Cloud Storage
         if (req.file) {
-            const uploaded = await spider.uploadFile(
+            const uploadRes = await spider.uploadFile(
                 STORAGE_ID,
                 req.file.buffer,
                 req.file.originalname,
                 req.file.mimetype
             );
-            // La API puede devolver un array o un objeto
-            const fileData  = Array.isArray(uploaded) ? uploaded[0] : uploaded;
-            image_file_id   = fileData.id || fileData.file_id || fileData._id || null;
-            image_url       = image_file_id
-                ? spider.getFileUrl(image_file_id)
-                : image_url;
+            console.log('[Admin] Upload response (crear):', JSON.stringify(uploadRes));
+            const { fileId, fileUrl } = spider.parseUploadResponse(uploadRes);
+            if (fileId) {
+                image_file_id = fileId;
+                image_url     = fileUrl;
+            } else {
+                console.warn('[Admin] No se pudo extraer file ID del upload response');
+            }
         }
 
         const sql = `
@@ -128,22 +131,33 @@ router.post('/codes/:id/edit', requireAuth, upload.single('image'), async (req, 
         let image_url     = existing_image_url     || '/img/portadas/default.webp';
         let image_file_id = existing_image_file_id || null;
 
-        // Si se subió una imagen nueva, reemplazar en Cloud Storage
+        // Si se subió una imagen nueva, subirla al Cloud Storage
         if (req.file) {
+            // Limpiar image_file_id si viene como string 'null'
+            const oldFileId = (existing_image_file_id && existing_image_file_id !== 'null' && existing_image_file_id.trim() !== '')
+                ? existing_image_file_id
+                : null;
+
             // Eliminar la imagen anterior si era del Cloud Storage
-            if (existing_image_file_id && existing_image_file_id !== 'null' && existing_image_file_id !== '') {
-                try { await spider.deleteFile(existing_image_file_id); } catch (_) { /* ignora si falla */ }
+            if (oldFileId) {
+                try { await spider.deleteFile(oldFileId); } catch (_) { /* ignora si falla */ }
             }
 
-            const uploaded = await spider.uploadFile(
+            const uploadRes = await spider.uploadFile(
                 STORAGE_ID,
                 req.file.buffer,
                 req.file.originalname,
                 req.file.mimetype
             );
-            const fileData = Array.isArray(uploaded) ? uploaded[0] : uploaded;
-            image_file_id  = fileData.id || fileData.file_id || fileData._id || null;
-            image_url      = image_file_id ? spider.getFileUrl(image_file_id) : image_url;
+            console.log('[Admin] Upload response (editar):', JSON.stringify(uploadRes));
+            const { fileId, fileUrl } = spider.parseUploadResponse(uploadRes);
+            if (fileId) {
+                image_file_id = fileId;
+                image_url     = fileUrl;
+            } else {
+                console.warn('[Admin] No se pudo extraer file ID del upload response');
+                // Mantener imagen anterior — no romper el registro
+            }
         }
 
         const sql = `

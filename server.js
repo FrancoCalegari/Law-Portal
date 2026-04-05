@@ -31,6 +31,29 @@ app.use(session({
 app.use('/',       indexRouter);
 app.use('/admin',  adminRouter);
 
+/* ─── PROXY: imágenes del Cloud Storage ─────────────────────────────── */
+// El browser no puede enviar X-API-KEY en un <img src>, así que el
+// servidor actúa de proxy para descargar y redirigir al navegador.
+const axios = require('axios');
+app.get('/img/cloud/:fileId', async (req, res) => {
+    const { fileId } = req.params;
+    const url = `${process.env.SPIDER_API_URL.replace(/\/$/, '')}/storage/files/${fileId}`;
+    try {
+        const upstream = await axios.get(url, {
+            headers: { 'X-API-KEY': process.env.SPIDER_API_KEY },
+            responseType: 'stream'
+        });
+        // Reenviar content-type original
+        const ct = upstream.headers['content-type'] || 'image/jpeg';
+        res.setHeader('Content-Type', ct);
+        res.setHeader('Cache-Control', 'public, max-age=86400'); // caché 1 día
+        upstream.data.pipe(res);
+    } catch (err) {
+        console.error('[Proxy] Error sirviendo imagen cloud:', err.message);
+        res.redirect('/img/portadas/default.webp');
+    }
+});
+
 /* ─── 404 ────────────────────────────────────────────────────────────── */
 app.use((req, res) => {
     res.status(404).render('index', {

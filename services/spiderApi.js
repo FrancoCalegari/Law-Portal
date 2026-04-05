@@ -88,12 +88,40 @@ async function getFileInfo(fileId) {
 }
 
 /**
- * Obtener la URL de descarga pública de un archivo.
+ * Extraer el file ID y la URL pública de la respuesta de uploadFile.
+ * La API devuelve: { success: true, files: [{ id, url, ... }] }
+ * @param {object} uploadResponse
+ * @returns {{ fileId: string|null, fileUrl: string|null }}
+ */
+function parseUploadResponse(uploadResponse) {
+    // formato: { success, files: [{id, url, ...}] }
+    if (uploadResponse && uploadResponse.files && uploadResponse.files.length > 0) {
+        const f = uploadResponse.files[0];
+        const fileId  = f.id != null ? String(f.id) : null;
+        // La URL relativa que viene en f.url la convertimos a absoluta
+        const fileUrl = fileId ? getFileUrl(fileId) : null;
+        return { fileId, fileUrl };
+    }
+    // Fallback por si la API cambia
+    const arr = Array.isArray(uploadResponse) ? uploadResponse : null;
+    if (arr && arr[0]) {
+        const f = arr[0];
+        const fileId  = f.id != null ? String(f.id) : null;
+        const fileUrl = fileId ? getFileUrl(fileId) : null;
+        return { fileId, fileUrl };
+    }
+    return { fileId: null, fileUrl: null };
+}
+
+/**
+ * Obtener la URL de descarga de un archivo (requiere API key en el servidor).
  * @param {string|number} fileId
  * @returns {string}
  */
 function getFileUrl(fileId) {
-    return `${BASE_URL}/storage/files/${fileId}`;
+    // Usamos la ruta proxy local para que el browser pueda cargar la imagen
+    // sin necesidad de enviar el header X-API-KEY
+    return `/img/cloud/${fileId}`;
 }
 
-module.exports = { query, listFiles, uploadFile, deleteFile, getFileInfo, getFileUrl };
+module.exports = { query, listFiles, uploadFile, deleteFile, getFileInfo, getFileUrl, parseUploadResponse };
